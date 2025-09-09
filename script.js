@@ -3,7 +3,7 @@ let searchType = document.getElementById("search_by").value;
 let searchQuery = document.getElementById("search_query").value;
 const stationsList = document.querySelector(".stations");
 const searchBtn = document.querySelector(".search_btn");
-const limit = 100;
+const limit = 20;
 
 // Search Radio Stations in a List
 var url = ``;

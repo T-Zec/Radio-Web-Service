@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Web Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Radio Web Service</h2>
+        <!-- Search Box -->
+        <div class="search">
+            <select name="search_by" id="search_by">
+                <option value="name" selected>Name</option>
+                <option value="language">Language</option>
+                <option value="country">Country</option>
+                <option value="tag">Tag/Genre</option>
+            </select>
+                <input type="text" id="search_query">
+                <button class="search_btn" onclick="searchStations()">Search</button>
+        </div>
+        <!-- Stations List -->
+        <div class="stations_list">
+            <div class="filter">
+                <select name="order_by" id="order_by">
+                    <option value="votes" selected>Votes</option>
+                    <option value="name">Name</option>
+                    <option value="country">Country</option>
+                    <option value="language">Language</option>
+                    <option value="bitrate">Bitrate</option>
+                    <option value="clickcount">Click Count</option>
+                </select>
+            </div>             
+            <!-- Stations Found -->
+            <div class="stations">
+                <!-- <p class="station" id="">test station</p> -->
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

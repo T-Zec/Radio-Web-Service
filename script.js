@@ -135,3 +135,10 @@ function toggleStream(streamUrl, btn) {
         }
     };
 }
+
+inputField = document.getElementById("search_query");
+inputField.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        searchBtn.click();
+    }
+})

@@ -22,7 +22,7 @@ async function searchStations(searchType) {
         stationsList.innerHTML = `<p class="error">No stations found for "${searchQuery}"</p>`;
         return;
     }
-    displayStations(data);    
+    displayStations(data, orderBy);
 }
 
 // Display Stations in a List
@@ -97,20 +97,25 @@ orderBySelect.addEventListener("change", () => {
 });
 
 // Play/pause Stream
+let currentAudio = null;
+let currentBtn = null;
+
 function toggleStream(streamUrl, btn) {
-    let currentAudio = null;
+    // If a stream is already playing, pause it and reset the button
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
-        let allPlayButtons = document.querySelectorAll(".play-btn");
-        allPlayButtons.forEach(button => {
-            button.textContent = "▶"; // Reset other buttons
-        });
+        if (currentBtn) {
+            currentBtn.textContent = "▶";
+        }
+        // If the same station is clicked, just stop and return
         if (currentAudio.src === streamUrl) {
-            currentAudio = null; // Stop if the same station is clicked
-            btn.textContent = "▶";
+            currentAudio = null;
+            currentBtn = null;
             return;
         }
     }
+
+    // Start new stream
     currentAudio = new Audio(streamUrl);
     currentAudio.crossOrigin = "anonymous"; // Handle CORS issues
     currentAudio.volume = 0.5; // Default volume
@@ -121,10 +126,13 @@ function toggleStream(streamUrl, btn) {
         btn.textContent = "▶";
     });
     btn.textContent = "⏸"; // Change button to pause icon
+    currentBtn = btn;
 
     currentAudio.onended = () => {
-        if (btn) btn.textContent = "▶"; // Change button back to play icon
-    };
+        if (currentBtn) currentBtn.textContent = "▶"; // Change button back to play icon
+        currentAudio = null;
+        currentBtn = null;
+    }
 
     // Volume Control
     const volumeControl = btn.nextElementSibling.querySelector("input");
@@ -133,7 +141,7 @@ function toggleStream(streamUrl, btn) {
         if (currentAudio) {
             currentAudio.volume = this.value;
         }
-    };
+    }
 }
 
 inputField = document.getElementById("search_query");

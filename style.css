@@ -179,6 +179,7 @@ h2 {
     border: none;
     outline: none;
     color: #fff;
+    background-color: #4377ae;
     border-radius: 10px;
     width: 40px;
     min-width: 40px;
@@ -188,8 +189,6 @@ h2 {
     font-size: 18px;
     transition: opacity 0.2s ease;
 }
-
-.station .play-btn { background-color: #4377ae;}
 
 .station button:hover { opacity: 0.8; }
 

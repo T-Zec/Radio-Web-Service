@@ -12,7 +12,7 @@ iv) Enter your query in the input field.
 
 v) Hit `Enter` or click `Search` button.
 
-vi) Wait until the page loads the stations' list.
+vi) Wait for the page to load the stations' list.
 
 vii) Click `▶` button to play any radio station.
 

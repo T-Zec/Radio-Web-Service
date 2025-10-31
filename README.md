@@ -3,7 +3,9 @@ A responsive Radio Web Service Application built with HTML, CSS, JavaScript, and
 
 ## HOW TO USE?
 i) Simply visit the webpage.
+\n
 ii) Select the search type (by Name, Lanuage, Country, Tag/Genre).
+
 iii) Select filter type (optional).
 iv) Enter your query in the input field.
 v) Hit `Enter` or click `Search` button.
